@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: degular-variable, sans-serif;    
+    line-height: 1.6;
+    background: #111;
+}
+
+/* Header Styles */
+.header {
+      background: rgba(255, 255, 255, 0.00);
+    color: black;
+    padding: 2rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 0;
+}
+
+.header.scrolled {
+    padding: 1rem 0;
+    background: rgba(255, 255, 255, 0.30);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 32px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {/*
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease;*/
+}
+
+.logo:hover {/*
+    transform: scale(1.05);*/
+}
+
+/* Desktop Navigation */
+.nav {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+.nav a {
+    color: black;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0;
+    /*border-radius: 25px;
+    transition: all 0.3s ease;*/
+    position: relative;
+}
+
+.nav a:hover {/*
+    background: rgba(0, 255, 255, 0.2);
+    transform: translateY(-2px);*/
+    color: #8B00FF;
+}
+
+.nav a.active {
+   /* background: rgba(0, 255, 255, 0.3);*/
+        color: #8B00FF;
+
+}
+
+/* Mobile Menu Button */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Mobile Navigation */
+.nav-mobile {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 1rem 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav-mobile.active {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-mobile a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.nav-mobile a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-left-color: white;
+    padding-left: 2.5rem;
+}
+
+/* Content Styles */
+.content {
+    margin-top: 80px;
+    padding: 2rem 1rem;
+}
+
+.section {
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+}
+
+.section p {
+    color: #666;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .content {
+        margin-top: 70px;
+    }
+
+    .section {
+        margin: 0 auto 2rem;
+        padding: 1.5rem;
+    }
+
+    .section h2 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+
+    .section {
+        padding: 1rem;
+    }
+}
+
+
+
+
+
+
+ .animated-link {
+      position: relative;
+      text-decoration: none;
+      display: inline-block;
+      color: #8B00FF;
+      transition: color 0.3s;
+    }
+    
+    /* Estilo 1: Expansión simple */
+    .underline-expand {
+      position: relative;
+    }
+    
+    .underline-expand::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #8B00FF;
+      transition: width 0.3s ease;
+    }
+    
+    .underline-expand:hover::after {
+      width: 100%;
+    }
