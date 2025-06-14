@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Incrediblare | We are a multi-disciplinary design studio</title>
+
+    <!--Typekit-->
+    <link rel="stylesheet" href="https://use.typekit.net/wvf0gku.css" />
+
+    <link rel="stylesheet" href="assets/css/sticky.css" />
+
+    <!--Favicon-->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assets/images/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../assets/images/favicon/site.webmanifest" />
+  </head>
+  <body>
+    <header class="header" id="header">
+      <div class="container">
+        <a href="#" class="logo"><img src="../assets/images/logo.svg" /></a>
+
+        <!-- Desktop Navigation -->
+        <nav>
+          <ul class="nav">
+
+            <li>
+              <a href="work/index.html" class="animated-link underline-expand">Servicios</a>
+            </li>
+            <li>
+              <a href="#sobre-nosotros" class="animated-link underline-expand"
+                >Sobre Nosotros</a
+              >
+            </li>
+            <li>
+              <a href="#portfolio" class="animated-link underline-expand"
+                >Portfolio</a
+              >
+            </li>
+            <li>
+              <a href="#contacto" class="animated-link underline-expand"
+                >Contacto</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <div class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <nav class="nav-mobile" id="navMobile">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#sobre-nosotros">Sobre Nosotros</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main class="content">
+      <section class="section" id="inicio">
+        <h2>Bienvenido</h2>
+        <p>
+          Este es un ejemplo de header sticky responsive que se adapta a
+          diferentes tamaños de pantalla. El header permanece fijo en la parte
+          superior mientras navegas por la página.
+        </p>
+        <p>
+          En dispositivos móviles, la navegación se convierte en un menú
+          hamburguesa para ahorrar espacio y mejorar la experiencia del usuario.
+        </p>
+      </section>
+
+      <section class="section" id="servicios">
+        <h2>Nuestros Servicios</h2>
+        <p>
+          Ofrecemos una amplia gama de servicios web incluyendo diseño
+          responsive, desarrollo frontend y backend, optimización SEO y mucho
+          más.
+        </p>
+        <p>
+          Nuestro enfoque está en crear experiencias web modernas y funcionales
+          que se adapten a todos los dispositivos.
+        </p>
+      </section>
+
+      <section class="section" id="sobre-nosotros">
+        <h2>Sobre Nosotros</h2>
+        <p>
+          Somos un equipo de desarrolladores apasionados por crear soluciones
+          web innovadoras. Nos especializamos en tecnologías modernas y mejores
+          prácticas de desarrollo.
+        </p>
+        <p>
+          Cada proyecto es una oportunidad para superar expectativas y entregar
+          resultados excepcionales.
+        </p>
+      </section>
+
+      <section class="section" id="portfolio">
+        <h2>Nuestro Portfolio</h2>
+        <p>
+          Aquí puedes ver algunos de nuestros trabajos más destacados. Cada
+          proyecto refleja nuestro compromiso con la calidad y la innovación.
+        </p>
+        <p>
+          Desde sitios web corporativos hasta aplicaciones web complejas, hemos
+          trabajado en proyectos diversos y desafiantes.
+        </p>
+      </section>
+
+      <section class="section" id="contacto">
+        <h2>Contacto</h2>
+        <p>
+          ¿Tienes un proyecto en mente? Nos encantaría escuchar tus ideas y
+          ayudarte a hacerlas realidad.
+        </p>
+        <p>
+          Contáctanos hoy mismo para una consulta gratuita y descubre cómo
+          podemos ayudarte a alcanzar tus objetivos digitales.
+        </p>
+      </section>
+    </main>
+
+    <script>
+      // Header scroll effect
+      window.addEventListener("scroll", function () {
+        const header = document.getElementById("header");
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menuToggle");
+      const navMobile = document.getElementById("navMobile");
+
+      menuToggle.addEventListener("click", function () {
+        menuToggle.classList.toggle("active");
+        navMobile.classList.toggle("active");
+      });
+
+      // Close mobile menu when clicking on a link
+      const mobileLinks = navMobile.querySelectorAll("a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", function () {
+          menuToggle.classList.remove("active");
+          navMobile.classList.remove("active");
+        });
+      });
+
+      // Smooth scrolling for navigation links
+      const allLinks = document.querySelectorAll('a[href^="#"]');
+      allLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute("href");
+          if (targetId === "#") return;
+
+          const targetSection = document.querySelector(targetId);
+          if (targetSection) {
+            const headerHeight = document.getElementById("header").offsetHeight;
+            const targetPosition = targetSection.offsetTop - headerHeight - 20;
+
+            window.scrollTo({
+              top: targetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+
+      // Active link highlighting
+      window.addEventListener("scroll", function () {
+        const sections = document.querySelectorAll(".section");
+        const navLinks = document.querySelectorAll(".nav a, .nav-mobile a");
+        const headerHeight = document.getElementById("header").offsetHeight;
+
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - headerHeight - 100;
+          const sectionHeight = section.offsetHeight;
+
+          if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+          ) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === "#" + current) {
+            link.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
